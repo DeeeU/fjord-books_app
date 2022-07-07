@@ -18,10 +18,14 @@ module BooksApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+<<<<<<< HEAD
     I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb, yml}')]
     I18n.available_locales = [:en, :ja]
 
     # デフォルトの設定(日本語へ)
     I18n.default_locale = :ja
+=======
+    config.i18n.default_locale = :ja
+>>>>>>> 50e897af7fdab07225779e3ef5c1871bbce3e2e2
   end
 end

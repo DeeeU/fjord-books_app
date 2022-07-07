@@ -58,4 +58,8 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 50e897af7fdab07225779e3ef5c1871bbce3e2e2
 gem 'rails-i18n'
