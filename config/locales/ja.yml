@@ -9,6 +9,7 @@ button: &button
   edit: "編集"
   destroy: "削除"
   newbook: "新しい本の追加"
+  back: "戻る"
 
 message: &message
   finalconfirmation: "本当によろしいですか？"
