@@ -1,1 +1,19 @@
+book_info: &book_info
+  title: "題名"
+  memo: "メモ"
+  author: "著者"
+  picture: "写真"
+
+button: &button
+  show: "表示"
+  edit: "編集"
+  destroy: "削除"
+  newbook: "新しい本の追加"
+
+message: &message
+  finalconfirmation: "本当によろしいですか？"
+
 ja:
+  book_info: *book_info
+  button: *button
+  message: *message
