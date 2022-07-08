@@ -14,7 +14,8 @@ button: &button
 message: &message
   finalconfirmation: "本当によろしいですか？"
   create_info: "本の情報は作成されました"
-
+  update_info: "本の情報は更新されました"
+  destroy_info: "本の情報は削除されました"
 ja:
   book_info: *book_info
   button: *button
