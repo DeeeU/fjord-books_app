@@ -28,6 +28,21 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      book: Book
+    attributes:
+      book:
+        title: "title"
+        memo: "memo"
+        author: "author"
+        picture: "picture"
+
+  books:
+    index:
+      page_title: "Book"
+    new:
+      page_title: "New Book"
+    edit:
+      page_title: "Edit Book"
