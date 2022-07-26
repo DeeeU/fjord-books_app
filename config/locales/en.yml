@@ -29,6 +29,3 @@ en:
     create_info: "「 %{name} 」 was created"
     update_info: "「 %{name} 」 was updated"
     destroy_info: "「 %{name} 」was deleted"
-
-  items:
-    book: "Book"
