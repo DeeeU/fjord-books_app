@@ -26,9 +26,6 @@ ja:
 
   message:
     confirm: "本当によろしいですか？"
-    create_info: "「 %{name} 」の情報は作成されました"
-    update_info: "「 %{name} 」の情報は更新されました"
-    destroy_info: "「 %{name} 」の情報は削除されました"
-
-  items:
-    book: "本"
+    create_info: "%{name} の情報は作成されました"
+    update_info: "%{name} の情報は更新されました"
+    destroy_info: "%{name} の情報は削除されました"
