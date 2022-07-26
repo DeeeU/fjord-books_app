@@ -17,7 +17,7 @@ en:
     edit:
       page_title: "Edit Book"
 
-  button:
+  items:
     show: "Show"
     edit: "Edit"
     destroy: "Delete"
