@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        title: "題名"
+        memo: "メモ"
+        author: "著者"
+        picture: "写真"
+
+  books:
+    index:
+      page_title: "本"
+    new:
+      page_title: "新規の本"
+    edit:
+      page_title: "本の編集"
+
+  items:
+    show: "表示"
+    edit: "編集"
+    destroy: "削除"
+    new: "新しい%{name}の追加"
+    back: "戻る"
+
+  message:
+    confirm: "本当によろしいですか？"
+    create_info: "%{name} の情報は作成されました"
+    update_info: "%{name} の情報は更新されました"
+    destroy_info: "%{name} の情報は削除されました"
