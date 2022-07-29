@@ -229,6 +229,7 @@ ja:
       logout: "ログアウト"
     items:
       email: "Eメール"
+      profile: "プロフィール"
       password: "パスワード"
       password_confirmation: "パスワードの再確認"
 

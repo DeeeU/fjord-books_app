@@ -44,10 +44,13 @@ ja:
       signed_in: "ログインしました。"
       signed_out: "ログアウトしました。"
       already_signed_out: "既にログアウト済みです。"
+      remember_me: "ログインしたままにする"
     unlocks:
       send_instructions: "アカウントの凍結解除方法を数分以内にメールでご連絡します。"
       send_paranoid_instructions: "アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。"
       unlocked: "アカウントを凍結解除しました。"
+    shared:
+      forget_password: "パスワードを忘れた場合"
   errors:
     messages:
       already_confirmed: "は既に登録済みです。ログインしてください。"
