@@ -3,7 +3,10 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= user.name %>
+     |  <%= user.id %>  |  <%= user.name %>  |  <%= user.email %>
+     <%# パスはまだ通していないので仮のものを入れている %>
+      <%= link_to '詳細ページへ' , new_user_session_path %>
     </li>
   <% end %>
+  <%= paginate @users %>
 </ul>
