@@ -6,8 +6,9 @@
     <%= csp_meta_tag %>
     <p>
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
+        Logged in as <strong><%= current_user.name %></strong>.
         <%= link_to t('views.common.title_edit', name: t('views.items.profile')), edit_user_registration_path %> |
+        <%= link_to t('views.common.title_index', name: t('views.items.user')), users_path %> |
         <%= link_to t('views.status.logout'), destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to t('views.status.sign_up'), new_user_registration_path %> |
