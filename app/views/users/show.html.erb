@@ -1,6 +1,6 @@
 <!-- /app/views/user/usershow.html.erb -->
-<p>Name : <%= @user.id %></p>
-<p>Email : <%= @user.email %></p>
-<p>Address : <%= @user.address %></p>
-<p>Postcode : <%= @user.postcode %></p>
-<p>Introduction : <%= @user.introduction %></p>
+<p><%= t('views.items.user_names')%> : <%= @user .name %></p>
+<p><%= t('views.items.email')%> : <%= @user.email %></p>
+<p><%= t('views.items.address')%> : <%= @user.address %></p>
+<p><%= t('views.items.postcode')%> : <%= @user.postcode %></p>
+<p><%= t('views.items.introduction')%> : <%= @user.introduction %></p>
