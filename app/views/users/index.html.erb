@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= User.human_attribute_name(:image) %></th>
       <th><%= User.human_attribute_name(:email) %></th>
       <th><%= User.human_attribute_name(:name) %></th>
       <th><%= User.human_attribute_name(:postal_code) %></th>
@@ -14,6 +15,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <% if user.image.attached? %>
+          <td><%= image_tag user.image.variant(resize:'50x50').processed %></td>
+        <% else %>
+          <td><%= image_tag 'nothing_photo.jpeg',width: '50px', height: '50px' %></td>
+        <% end %>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
         <td><%= user.postal_code %></td>
