@@ -18,7 +18,7 @@
         <% if user.image.attached? %>
           <td><%= image_tag user.image.variant(resize:'50x50').processed %></td>
         <% else %>
-          <td><%= image_tag 'nothing_photo.jpeg',width: '50px', height: '50px' %></td>
+          <td><%= image_tag 'white_image.png',width: '50px', height: '50px' %></td>
         <% end %>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
