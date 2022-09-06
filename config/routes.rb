@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :books
   resources :users, only: %i(index show) do
     member do
-      get :follows, :followers
+      get :followings, :followers
     end
     resource :follows, only: [:create, :destroy]
   end

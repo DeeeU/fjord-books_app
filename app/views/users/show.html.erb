@@ -7,6 +7,9 @@
     <% else %>
     <%= link_to 'フォローする', user_follows_path(@user.id), method: :POST %>
     <% end %>
+  <% else %>
+    <%= link_to 'フォロー数', followings_user_path %> : <%= current_user.follower.count %>
+    <%= link_to 'フォワー数', followers_user_path %> : <%= current_user.followed.count %>
   <% end %>
 </div>
 
