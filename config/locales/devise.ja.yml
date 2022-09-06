@@ -57,6 +57,9 @@ ja:
       unlocked: "アカウントを凍結解除しました。"
     shared:
       forget_password: "パスワードを忘れた場合"
+      didnot_receive: "%{name}の指示を受け取りませんでしたか?"
+      sign_in_with: "%{name}でサインインする"
+
   errors:
     messages:
       already_confirmed: "は既に登録済みです。ログインしてください。"

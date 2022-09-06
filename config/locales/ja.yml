@@ -243,6 +243,8 @@ ja:
       introduction: "一言"
       password: "パスワード"
       password_confirmation: "パスワードの再確認"
+      confirmation: "確認"
+      unlock: "解除"
 
   controllers:
     common:
