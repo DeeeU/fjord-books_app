@@ -1,2 +1,17 @@
-<h1>Reports#show</h1>
-<p>Find me in app/views/reports/show.html.erb</p>
+<h1>日誌の詳細</h1>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:text) %>:</strong>
+  <%= @report.text %>
+</p>
+
+<%= link_to '編集', edit_report_path %>
+
+<%= link_to :back do %>
+  戻る
+<% end %>
