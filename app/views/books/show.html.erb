@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 <p>
   <strong><%= Book.human_attribute_name(:title) %>:</strong>

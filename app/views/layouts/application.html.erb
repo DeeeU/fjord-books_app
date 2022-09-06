@@ -4,7 +4,18 @@
     <title>BooksApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <p>
+      <% if user_signed_in? %>
+        <strong><%= t('views.status.who_login', name: current_user.name)%></strong>
+        <%= link_to t('views.common.index'),root_path %> |
+        <%= link_to t('views.common.title_edit', name: t('views.items.profile')), edit_user_registration_path %> |
+        <%= link_to t('views.common.title_index', name: t('views.items.user')), users_path %> |
+        <%= link_to t('views.status.logout'), destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to t('views.status.sign_up'), new_user_registration_path %> |
+        <%= link_to t('views.status.login'), new_user_session_path %>
+      <% end %>
+    </p>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
