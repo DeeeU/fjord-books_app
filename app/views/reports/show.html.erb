@@ -10,7 +10,7 @@
   <%= @report.text %>
 </p>
 
-<% if @report.created_by == current_user %>
+<% if @report.created_by == current_user.id %>
   <%= link_to '更新', edit_report_path %>
 <% end %>
 
