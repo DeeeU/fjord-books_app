@@ -10,7 +10,9 @@
   <%= @report.text %>
 </p>
 
-<%= link_to '編集', edit_report_path %>
+<% if @report.created_by == current_user %>
+  <%= link_to '更新', edit_report_path %>
+<% end %>
 
 <%= link_to :back do %>
   戻る
