@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-
+    @report.created_by = current_user.id
     respond_to do |format|
       if @report.save
         format.html { redirect_to reports_url }
