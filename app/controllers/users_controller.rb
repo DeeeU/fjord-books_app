@@ -10,10 +10,10 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @following_users = current_user.following_user
+    @follow = current_user.following_user
   end
 
   def followers
-    @follower_users = current_user.follower_user
+    @follow = current_user.follower_user
   end
 end
