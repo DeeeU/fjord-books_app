@@ -2,7 +2,7 @@
 <%= form_with model: @report do |form| %>
   <%= form.label :title, "Title" %>
   <%= form.text_area :title, size: "30x1" %>
-  <%= form.label :text, "Text" %>
-  <%= form.text_area :text, size: "30x10" %></br>
+  <%= form.label :memo, "Text" %>
+  <%= form.text_area :memo, size: "30x10" %></br>
   <%= form.submit %>
 <% end %>

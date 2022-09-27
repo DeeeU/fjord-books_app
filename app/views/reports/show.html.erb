@@ -7,7 +7,7 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:text) %>:</strong>
-  <%= @report.text %>
+  <%= @report.memo %>
 </p>
 
 <% if @report.created_by == current_user.id %>
