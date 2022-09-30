@@ -10,10 +10,10 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @follow = current_user.following_user
+    @follow = current_user.following_user.with_attached_avatar
   end
 
   def followers
-    @follow = current_user.follower_user
+    @follow = current_user.follower_user.with_attached_avatar
   end
 end
