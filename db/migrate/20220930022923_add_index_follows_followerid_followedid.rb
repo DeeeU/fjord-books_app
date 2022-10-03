@@ -1,5 +1,5 @@
 class AddIndexFollowsFolloweridFollowedid < ActiveRecord::Migration[6.1]
   def change
-    add_index :Follows, [:follower_id, :followed_id]
+    add_index :follows, [:follower_id, :followed_id], unique: true
   end
 end
