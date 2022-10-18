@@ -2,6 +2,6 @@
 
 class Book < ApplicationRecord
   mount_uploader :picture, PictureUploader
-  has_many :comments, as: :polymorphic
+  has_many :comments, as: :postable
   belongs_to :user
 end
