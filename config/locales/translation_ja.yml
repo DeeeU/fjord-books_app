@@ -22,5 +22,6 @@ ja:
         title: タイトル
         text: テキスト
         created_by: 作者
+        created_at: 投稿時間
       comment:
         text: テキスト
