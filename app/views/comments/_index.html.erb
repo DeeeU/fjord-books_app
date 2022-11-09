@@ -1,9 +1,20 @@
 <h3>Comment</h3>
 <p>
   <% postable.comments.each do |comment| %>
-    <%= comment.text %>
-    <%= comment.user_id %>
-    <%= comment.created_at %>
-    </br>
+    <tr>
+      <td><%= comment.text %></td>
+      <td><%= l comment.created_at, format: :long %></td>
+
+      <td>
+        <% if User.find(comment.user_id).name.empty? %>
+          <%= User.find(comment.user_id).email %>
+        <% else %>
+          <%= User.find(comment.user_id).name %>
+        <% end %>
+      </td>
+      <td><%= link_to 'Edit', comment %></td>
+      <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </br>
+    </tr>
   <% end %>
 </p>
