@@ -11,7 +11,10 @@ class BooksController < ApplicationController
 
   # GET /books/1
   # GET /books/1.json
-  def show; end
+  def show
+    @book = Book.find(params[:id])
+    @comment = @book.comments
+  end
 
   # GET /books/new
   def new
