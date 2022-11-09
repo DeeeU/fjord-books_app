@@ -9,6 +9,11 @@ class ReportsController < ApplicationController
     @report = Report.new
   end
 
+  def show
+    @report = Report.find(params[:id])
+    @comment = @report.comments.new()
+  end
+
   def create
     @report = Report.new(report_params)
     @report.created_by = current_user.id
@@ -44,6 +49,7 @@ class ReportsController < ApplicationController
   end
 
   private
+
   def set_report
     @report = Report.find(params[:id])
 
