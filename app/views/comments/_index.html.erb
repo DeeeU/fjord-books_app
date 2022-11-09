@@ -1,0 +1,9 @@
+<h3>Comment</h3>
+<p>
+  <% postable.comments.each do |comment| %>
+    <%= comment.text %>
+    <%= comment.user_id %>
+    <%= comment.created_at %>
+    </br>
+  <% end %>
+</p>

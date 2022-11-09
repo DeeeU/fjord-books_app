@@ -1,0 +1,8 @@
+
+<h1>Comments#create</h1>
+<%= form_with model: @comment, local: true do |f| %>
+  <%= f.text_field :text %>
+  <%= f.hidden_field :postable_id, value: postable.id %>
+  <%= f.hidden_field :postable_type, value: postable.class.name %>
+  <%= f.submit "コメントする" %>
+<% end %>
