@@ -12,16 +12,16 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to polymorphic_path([@comment.postable_type.constantize]), info: '成功'
+      redirect_to polymorphic_path(@comment.postable), info: '成功'
     else
-      redirect_to polymorphic_path([@comment.postable_type.constantize]), alert: '失敗'
+      redirect_to polymorphic_path(@comment.postable), alert: '失敗'
     end
   end
 
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to polymorphic_path([@comment.postable_type.constantize]) }
+        format.html { redirect_to polymorphic_path(@comment.postable) }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to polymorphic_path([@comment.postable_type.constantize]), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
+      format.html { redirect_to polymorphic_path(@comment.postable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
       format.json { head :no_content }
     end
   end
