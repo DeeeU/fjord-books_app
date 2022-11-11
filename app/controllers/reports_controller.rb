@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show update destroy]
+  before_action :set_report, only: %i[show update edit destroy]
 
   def index
     @reports = Report.order(:id)
@@ -15,6 +15,8 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
   end
+
+  def edit; end
 
   def create
     @report = Report.new(report_params)
