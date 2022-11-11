@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show edit update destroy]
+  before_action :set_report, only: %i[show update destroy]
 
   def index
     @reports = Report.order(:id)
@@ -16,17 +16,16 @@ class ReportsController < ApplicationController
     @report = Report.new
   end
 
-
   def create
     @report = Report.new(report_params)
     @report.created_by = current_user.id
     respond_to do |format|
       if @report.save
-        format.html { redirect_to reports_url , notice: t('controllers.common.notice_create', name: Report.model_name.human) }
+        format.html { redirect_to reports_url, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
         format.json { render :index, status: :created, location: @report }
       else
-        format.html {render :new}
-        format.json {render json: @report.errors, status: :unprocessable_entity }
+        format.html { render :new }
+        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +54,6 @@ class ReportsController < ApplicationController
 
   def set_report
     @report = Report.find(params[:id])
-
   end
 
   def report_params
