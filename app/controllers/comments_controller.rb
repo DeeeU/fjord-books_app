@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[show edit update destroy]
+  before_action :set_comment, only: %i[show update destroy]
   def index
     @comments = Comment.order(:id)
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @comment = Comment.new(comment_params)
@@ -22,8 +21,8 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html{ redirect_to  polymorphic_path([@comment.postable_type.constantize]) }
-        format.json {render :show, status: :ok, location: @comment}
+        format.html { redirect_to polymorphic_path([@comment.postable_type.constantize]) }
+        format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -34,7 +33,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to  polymorphic_path([@comment.postable_type.constantize]), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
+      format.html { redirect_to polymorphic_path([@comment.postable_type.constantize]), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
       format.json { head :no_content }
     end
   end
