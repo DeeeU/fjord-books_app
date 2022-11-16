@@ -2,6 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show update edit destroy]
+  before_action :correct_user, only: %i[update edit destroy]
 
   def index
     @reports = Report.order(:id)
@@ -9,14 +10,14 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
-    @comment = @report.comments
+    @comment = @report.comments.includes(:user)
   end
 
   def new
     @report = Report.new
   end
 
-  def edit; end
+  def edit;end
 
   def create
     @report = Report.new(report_params)
@@ -60,5 +61,11 @@ class ReportsController < ApplicationController
 
   def report_params
     params.require(:report).permit(:title, :text)
+  end
+
+  def correct_user
+    unless @report.created_by == current_user.id
+      redirect_to reports_url
+    end
   end
 end
