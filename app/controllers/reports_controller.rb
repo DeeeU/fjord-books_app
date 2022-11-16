@@ -15,11 +15,7 @@ class ReportsController < ApplicationController
     @report = Report.new
   end
 
-  def edit
-    unless user_signed_in? && (current_user == @report.created_by)
-      redirect_to reports_url
-    end
-  end
+  def edit; end
 
   def create
     @report = Report.new(report_params)
