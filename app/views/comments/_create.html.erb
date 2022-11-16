@@ -1,6 +1,6 @@
 <h2>Commentの新規作成</h2>
 <%= form_with model: comment, local: true do |f| %>
-  <%= f.text_field :text %>
+  <%= f.text_field :text, required: true %>
   <%= f.hidden_field :postable_id, value: postable.id %>
   <%= f.hidden_field :postable_type, value: postable.class.name %>
   <%= f.submit "コメントする" %>
