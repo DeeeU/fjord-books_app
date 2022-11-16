@@ -2,8 +2,6 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show update edit destroy]
-  before_action :correct_user, only: %i[update edit destroy]
-
   def index
     @reports = Report.order(:id)
   end
@@ -17,7 +15,11 @@ class ReportsController < ApplicationController
     @report = Report.new
   end
 
-  def edit;end
+  def edit
+    unless user_signed_in? && (current_user == @report.created_by)
+      redirect_to reports_url
+    end
+  end
 
   def create
     @report = Report.new(report_params)
@@ -63,9 +65,9 @@ class ReportsController < ApplicationController
     params.require(:report).permit(:title, :text)
   end
 
-  def correct_user
-    unless @report.created_by == current_user.id
-      redirect_to reports_url
-    end
-  end
+  # def correct_user
+  #   unless @report.created_by == current_user.id
+  #     redirect_to reports_url
+  #   end
+  # end
 end
