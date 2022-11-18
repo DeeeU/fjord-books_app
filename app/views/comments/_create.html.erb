@@ -3,5 +3,5 @@
   <%= f.text_field :text, required: true %>
   <%= f.hidden_field :postable_id, value: postable.id %>
   <%= f.hidden_field :postable_type, value: postable.class.name %>
-  <%= f.submit "コメントする" %>
+  <%= f.submit 'コメントする' %>
 <% end %>

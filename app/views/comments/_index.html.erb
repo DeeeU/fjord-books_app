@@ -8,7 +8,7 @@
       <td>
 
         <% if comment.user.name.empty? %>
-          <%=comment.user.email %>
+          <%= comment.user.email %>
         <% else %>
           <%= comment.user.name %>
         <% end %>
@@ -17,7 +17,7 @@
         <td><%= link_to 'Edit', comment %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
-      </br>
+      <br>
     </tr>
   <% end %>
 </p>
