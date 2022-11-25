@@ -60,10 +60,4 @@ class ReportsController < ApplicationController
   def report_params
     params.require(:report).permit(:title, :text)
   end
-
-  # def correct_user
-  #   unless @report.created_by == current_user.id
-  #     redirect_to reports_url
-  #   end
-  # end
 end
