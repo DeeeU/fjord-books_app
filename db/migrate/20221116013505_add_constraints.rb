@@ -1,5 +1,5 @@
 class AddConstraints < ActiveRecord::Migration[6.1]
-  def change
+  def up
     change_column :reports, :title, :text, null: false
     change_column :reports, :text, :text, null: false
     change_column :comments, :text, :text, null: false
