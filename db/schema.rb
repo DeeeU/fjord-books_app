@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2022_10_28_014818) do
   create_table "reports", force: :cascade do |t|
     t.string "title", null: false
     t.string "text", null: false
-    t.bigint "created_by"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
