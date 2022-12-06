@@ -4,9 +4,7 @@
     <tr>
       <td><%= comment.text %></td>
       <td><%= l comment.created_at, format: :long %></td>
-
       <td>
-
         <% if comment.user.name.empty? %>
           <%= comment.user.email %>
         <% else %>
