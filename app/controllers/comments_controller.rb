@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to polymorphic_path(@comment.postable), info: '成功'
+      redirect_to polymorphic_path(@comment.postable), notice: 'コメントの投稿が成功しました'
     else
-      redirect_to polymorphic_path(@comment.postable), alert: '失敗'
+      redirect_to polymorphic_path(@comment.postable), alert: 'コメントの投稿が失敗しました'
     end
   end
 
