@@ -20,10 +20,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to polymorphic_path(@comment.postable) }
-        format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -32,7 +30,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to polymorphic_path(@comment.postable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
-      format.json { head :no_content }
     end
   end
 

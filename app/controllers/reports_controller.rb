@@ -25,10 +25,8 @@ class ReportsController < ApplicationController
     respond_to do |format|
       if @report.save
         format.html { redirect_to reports_url, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
-        format.json { render :index, status: :created, location: @report }
       else
         format.html { render :new }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,10 +35,8 @@ class ReportsController < ApplicationController
     respond_to do |format|
       if @report.update(report_params)
         format.html { redirect_to reports_url }
-        format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,7 +45,6 @@ class ReportsController < ApplicationController
     @report.destroy
     respond_to do |format|
       format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
-      format.json { head :no_content }
     end
   end
 
