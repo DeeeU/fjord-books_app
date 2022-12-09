@@ -2,6 +2,8 @@
 
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[show update destroy]
+  before_action :regular_user, only: %i[ show edit update destroy]
+
   def index
     @comments = Comment.order(:id)
   end
@@ -46,5 +48,12 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:text, :postable_type, :postable_id)
+  end
+
+  def regular_user
+    @comment = Comment.find(params[:id])
+    unless @comment.user.id == current_user.id
+      redirect_to polymorphic_path(@comment.postable.class)
+    end
   end
 end
