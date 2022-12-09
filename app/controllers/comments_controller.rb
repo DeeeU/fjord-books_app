@@ -4,10 +4,6 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[show update destroy]
   before_action :regular_user, only: %i[show update destroy]
 
-  def index
-    @comments = Comment.order(:id)
-  end
-
   def show; end
 
   def create
