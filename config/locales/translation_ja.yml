@@ -2,7 +2,7 @@ ja:
   activerecord:
     models:
       book: 本  #g
-      report: 日誌
+      report: 日報
       user: ユーザ
       comment: コメント
 
