@@ -17,20 +17,16 @@ class CommentsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to polymorphic_path(@comment.postable) }
-      else
-        format.html { render :edit }
-      end
+    if @comment.update(comment_params)
+      redirect_to polymorphic_path(@comment.postable)
+    else
+      render :edit
     end
   end
 
   def destroy
     @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to polymorphic_path(@comment.postable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
-    end
+    redirect_to polymorphic_path(@comment.postable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private
