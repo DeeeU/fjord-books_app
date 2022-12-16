@@ -20,8 +20,7 @@ class ReportsController < ApplicationController
   def edit; end
 
   def create
-    @report = Report.new(report_params)
-    @report.user_id = current_user.id
+    @report = Report.new(**report_params, user_id: current_user.id)
     respond_to do |format|
       if @report.save
         format.html { redirect_to reports_url, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
