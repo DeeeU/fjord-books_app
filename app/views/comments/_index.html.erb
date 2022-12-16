@@ -1,5 +1,5 @@
 <h2><%= t(Comment.model_name.human)  %></h2>
-<p>
+<table>
   <% postable.comments.each do |comment| %>
     <tr>
       <td><%= comment.text %></td>
@@ -18,4 +18,4 @@
       <br>
     </tr>
   <% end %>
-</p>
+</table>
