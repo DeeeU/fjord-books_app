@@ -7,11 +7,11 @@ class CommentsController < ApplicationController
   def edit; end
 
   def create
-    @comment = Comment.new(**comment_params, user_id: current_user.id)
+    @comment = Comment.new(**comment_params, user_id: current_user)
     if @comment.save
-      redirect_to polymorphic_path(@comment.postable), notice: 'コメントの投稿が成功しました'
+      redirect_to polymorphic_path(@comment.postable), notice: t('controllers.common.notice_create', name:Comment.model_name.human)
     else
-      redirect_to polymorphic_path(@comment.postable), alert: 'コメントの投稿が失敗しました'
+      redirect_to polymorphic_path(@comment.postable), alert: t('controllers.common.notice_no_create', name:Comment.model_name.human)
     end
   end
 
