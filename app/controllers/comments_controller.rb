@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[show update destroy]
-  before_action :regular_user, only: %i[show update destroy]
+  before_action :set_comment, only: %i[edit update destroy]
+  before_action :regular_user, only: %i[edit update destroy]
 
-  def show; end
+  def edit; end
 
   def create
     @comment = Comment.new(comment_params)
