@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(**comment_params, user_id: current_user.id)
     if @comment.save
-      redirect_to polymorphic_path(@comment.postable), notice: t('controllers.common.notice_create', name:Comment.model_name.human)
+      redirect_to polymorphic_path(@comment.postable), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      redirect_to polymorphic_path(@comment.postable), alert: t('controllers.common.notice_no_create', name:Comment.model_name.human)
+      redirect_to polymorphic_path(@comment.postable), alert: t('controllers.common.notice_no_create', name: Comment.model_name.human)
     end
   end
 
