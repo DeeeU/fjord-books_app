@@ -12,8 +12,8 @@
         <% end %>
       </td>
       <% if comment.user_id == current_user.id %>
-        <td><%= link_to 'Edit', edit_comment_path(comment.id) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'よろしいでしょうか?' } %></td>
+        <td><%= link_to  t('views.common.edit'), edit_comment_path(comment.id) %></td>
+        <td><%= link_to t('views.common.destroy'), comment, method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
       <% end %>
       <br>
     </tr>
