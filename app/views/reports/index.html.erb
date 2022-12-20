@@ -6,7 +6,6 @@
       <th><%= Report.human_attribute_name(:title) %></th>
       <th><%= Report.human_attribute_name(:text) %></th>
       <th><%= Report.human_attribute_name(:user_id) %></th>
-      <th><%= Report.human_attribute_name(:email) %></th>
       <th><%= Report.human_attribute_name(:created_at) %></th>
 
       <th colspan="3"></th>
@@ -18,8 +17,13 @@
       <tr>
         <td><%= report.title %></td>
         <td><%= report.text %></td>
-        <td><%= report.user.name %></td>
-        <td><%= report.user.email %></td>
+        <td>
+        <% if report.user.name.empty? %>
+          <%= report.user.email %>
+        <% else %>
+          <%= report.user.name %>
+        <% end %>
+        </td>
         <td><%= report.created_at.strftime("%Y/%m/%d") %></td>
         <td><%= link_to t('views.common.show'), report %></td>
         <% if report.user_id == current_user.id %>
