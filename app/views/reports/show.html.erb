@@ -11,6 +11,24 @@
   </strong>
   <%= @report.text %>
 </p>
+<p>
+  <strong>
+    <%= Report.human_attribute_name(:author) %>:
+  </strong>
+  <%= @report.user.name %>
+</p>
+<p>
+  <strong>
+    <%= Report.human_attribute_name(:email) %>:
+  </strong>
+  <%= @report.user.email %>
+</p>
+<p>
+  <strong>
+    <%= Report.human_attribute_name(:created_at) %>:
+  </strong>
+  <%= @report.created_at %>
+</p>
 
 <% if @report.user_id == current_user.id %>
   <%= link_to t('views.common.edit'), edit_report_path(@report) %>
