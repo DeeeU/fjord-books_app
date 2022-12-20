@@ -39,8 +39,6 @@ class CommentsController < ApplicationController
   end
 
   def regular_user
-    @comments = current_user.comments
-    @comment = @comments.find_by(id: params[:id])
-    redirect_to 404 unless @comment
+    @comment = current_user.comments.find_by!(id: params[:id])
   end
 end
