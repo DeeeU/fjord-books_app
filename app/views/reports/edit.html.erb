@@ -1,10 +1,3 @@
 <h1><%= t('views.common.title_edit',name: Report.model_name.human ) %></h1>
 
-<%= form_with model: @report do |form| %>
-  <%= form.label :title, t(Report.human_attribute_name(:title)) %>
-  <%= form.text_area :title, size: '30x1', required: true %>
-  <%= form.label :text, t(Report.human_attribute_name(:text)) %>
-  <%= form.text_area :text, size: '30x10', required: true %><br>
-  <%= form.submit %>
-  <%= link_to t('views.common.back'), :back %>
-<% end %>
+<%= render 'form', report: @report %>
