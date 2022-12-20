@@ -39,9 +39,8 @@ class CommentsController < ApplicationController
   end
 
   def regular_user
-    @comment = Comment.find(params[:id])
-    return unless @comment.user.id != current_user.id
-
-    redirect_to polymorphic_path(@comment.postable.class)
+    @comments = current_user.comments
+    @comment = @comments.find_by(id: params[:id])
+    redirect_to 404 unless @comment
   end
 end

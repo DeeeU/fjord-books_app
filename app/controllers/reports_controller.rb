@@ -52,9 +52,8 @@ class ReportsController < ApplicationController
   end
 
   def regular_user
-    @report = Report.find(params[:id])
-    return unless @report.user.id != current_user.id
-
-    redirect_to reports_url
+    @reports = current_user.reports
+    @report = @reports.find_by(id: params[:id])
+    redirect_to 404 unless @report
   end
 end
