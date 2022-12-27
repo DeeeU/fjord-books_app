@@ -23,6 +23,6 @@ ja:
         text: テキスト
         user_id: 作者
         email: Eメール
-        created_at: 投稿日
+        created_at: 投稿日時
       comment:
         text: テキスト
