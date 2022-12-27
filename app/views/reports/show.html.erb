@@ -15,11 +15,7 @@
   <strong>
     <%= Report.human_attribute_name(:user_id) %>
   </strong>
-  <% if @report.user.name.empty? %>
-    <%= @report.user.email %>
-  <% else %>
-    <%= @report.user.name %>
-  <% end %>
+  <%= render 'layouts/name_or_email', i: @report %>
 </p>
 <p>
   <strong>

@@ -17,13 +17,7 @@
       <tr>
         <td><%= report.title %></td>
         <td><%= report.text %></td>
-        <td>
-          <% if report.user.name.empty? %>
-            <%= report.user.email %>
-          <% else %>
-            <%= report.user.name %>
-          <% end %>
-        </td>
+        <td><%= render 'layouts/name_or_email', i: report %></td>
         <td><%= l report.created_at.to_date %></td>
         <td><%= link_to t('views.common.show'), report %></td>
         <% if report.user == current_user %>
