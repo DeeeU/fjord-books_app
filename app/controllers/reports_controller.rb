@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show update edit destroy]
-  before_action :regular_user, only: %i[edit update destroy]
+  before_action :regular_report, only: %i[edit update destroy]
 
   def index
     @reports = Report.order(:id)
@@ -51,7 +50,7 @@ class ReportsController < ApplicationController
     params.require(:report).permit(:title, :text)
   end
 
-  def regular_user
-    @report = current_user.reports.find_by!(id: params[:id])
+  def regular_report
+    @report = current_user.reports.find(params[:id])
   end
 end

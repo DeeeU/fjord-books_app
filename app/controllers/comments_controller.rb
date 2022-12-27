@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[edit update destroy]
-  before_action :regular_user, only: %i[edit update destroy]
+  before_action :regular_comment, only: %i[edit update destroy]
 
   def edit; end
 
@@ -30,15 +29,11 @@ class CommentsController < ApplicationController
 
   private
 
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
-
   def comment_params
     params.require(:comment).permit(:text, :postable_type, :postable_id)
   end
 
-  def regular_user
-    @comment = current_user.comments.find_by!(id: params[:id])
+  def regular_comment
+    @comment = current_user.comments.find(params[:id])
   end
 end
