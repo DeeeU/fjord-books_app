@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.new(report_params)
     if @report.save
-      redirect_to reports_url, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+      redirect_to reports_path, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
-      redirect_to reports_url
+      redirect_to reports_path
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class ReportsController < ApplicationController
 
   def destroy
     @report.destroy
-    redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
+    redirect_to reports_path, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
