@@ -13,15 +13,13 @@
 </p>
 <p>
   <strong>
-    <%= Report.human_attribute_name(:author) %>:
+    <%= Report.human_attribute_name(:user_id) %>
   </strong>
-  <%= @report.user.name %>
-</p>
-<p>
-  <strong>
-    <%= Report.human_attribute_name(:email) %>:
-  </strong>
-  <%= @report.user.email %>
+  <% if @report.user.name.empty? %>
+    <%= @report.user.email %>
+  <% else %>
+    <%= @report.user.name %>
+  <% end %>
 </p>
 <p>
   <strong>
