@@ -4,7 +4,7 @@
     <tr>
       <td><%= comment.text %></td>
       <td><%= l comment.created_at, format: :long %></td>
-      <td><%= render 'layouts/name_or_email', i: comment %></td>
+      <td><%= name_or_email comment %></td>
       <% if comment.user == current_user %>
         <td><%= link_to t('views.common.edit'), edit_comment_path(comment) %></td>
         <td><%= link_to t('views.common.destroy'), comment, method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
