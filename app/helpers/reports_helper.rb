@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module BooksHelper
+module ReportsHelper
   def name_or_email(item)
     if item.user.name.empty?
       item.user.email
