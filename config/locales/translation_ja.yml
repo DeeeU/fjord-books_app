@@ -24,5 +24,6 @@ ja:
         user_id: 作者
         email: Eメール
         created_at: 投稿日時
+        posted_date: 投稿日
       comment:
         text: テキスト
