@@ -21,4 +21,8 @@
 </p>
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
+
+<%= render partial: 'comments/index', locals: { postable: @book } %>
+<%= render partial: 'comments/new', locals: { postable: @book, comment: @book.comments.new } %>
+
 <%= link_to t('views.common.back'), books_path %>

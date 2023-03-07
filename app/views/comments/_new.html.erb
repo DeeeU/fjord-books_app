@@ -1,0 +1,7 @@
+<h2><%= t('views.common.title_new', name: Comment.model_name.human) %></h2>
+<%= form_with model: comment, local: true do |f| %>
+  <%= f.text_field :text, required: true %>
+  <%= f.hidden_field :postable_id, value: postable.id %>
+  <%= f.hidden_field :postable_type, value: postable.class.name %>
+  <%= f.submit t('helpers.submit.create') %>
+<% end %>

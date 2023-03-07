@@ -1,0 +1,33 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
+<p>
+  <strong>
+    <%= Report.human_attribute_name(:title) %>:
+  </strong>
+  <%= @report.title %>
+</p>
+<p>
+  <strong>
+    <%= Report.human_attribute_name(:text) %>:
+  </strong>
+  <%= @report.text %>
+</p>
+<p>
+  <strong>
+    <%= Report.human_attribute_name(:user_id) %>
+  </strong>
+  <%= @report.user.name_or_email %>
+</p>
+<p>
+  <strong>
+    <%= Report.human_attribute_name(:posted_date) %>:
+  </strong>
+  <%= l @report.created_at.to_date %>
+</p>
+
+<% if @report.user == current_user %>
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %>
+<% end %>
+
+<%= render partial: 'comments/index', locals: { postable: @report } %>
+<%= render partial: 'comments/new', locals: { postable: @report, comment: @report.comments.new } %>
+<%= link_to t('views.common.back'), reports_path %>

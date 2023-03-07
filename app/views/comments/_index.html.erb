@@ -1,0 +1,14 @@
+<h2><%= Comment.model_name.human %></h2>
+<table>
+  <% postable.comments.each do |comment| %>
+    <tr>
+      <td><%= comment.text %></td>
+      <td><%= l comment.created_at, format: :long %></td>
+      <td><%= comment.user.name_or_email %></td>
+      <% if comment.user == current_user %>
+        <td><%= link_to t('views.common.edit'), edit_comment_path(comment) %></td>
+        <td><%= link_to t('views.common.destroy'), comment, method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
