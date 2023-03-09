@@ -1,4 +1,6 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
@@ -10,12 +12,12 @@ class ReportsTest < ApplicationSystemTestCase
     click_button 'ログイン'
   end
 
-  test "visiting the Report index" do
+  test 'visiting the Report index' do
     visit reports_url
-    assert_selector "h1", text: "日報"
+    assert_selector 'h1', text: '日報'
   end
 
-  test "creating the Report" do
+  test 'creating the Report' do
     visit reports_url
     click_on '新規作成'
 
@@ -27,7 +29,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test "editing the Report" do
+  test 'editing the Report' do
     visit reports_url
     click_link('編集')
 
@@ -39,7 +41,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test "destroying the Report" do
+  test 'destroying the Report' do
     visit reports_url
     page.accept_confirm do
       click_link('削除')
