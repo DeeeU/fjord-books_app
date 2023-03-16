@@ -15,19 +15,24 @@ class ReportsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '日報'
     assert_text "Report Alice"
     assert_text "alice@hoge.com"
-    assert_text Date.today.replace('-', '/')
+    assert_text Date.today.strftime('%Y/%m/%d')
   end
 
   test 'creating the Report' do
     visit reports_url
     click_on '新規作成'
 
-    fill_in 'タイトル', with: @report.title
-    fill_in '内容', with: @report.content
+    fill_in 'タイトル', with: "This is Alice's report."
+    fill_in '内容', with: "Report Alice"
+
     click_on '登録する'
 
     assert_text '日報が作成されました。'
+    assert_text "Report Alice"
+
     click_on '戻る'
+    assert_current_path(reports_path)
+
   end
 
   test 'editing the Report' do
