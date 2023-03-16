@@ -4,8 +4,6 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:book_alice)
-
     visit root_url
     fill_in 'Eメール', with: 'alice@hoge.com'
     fill_in 'パスワード', with: 'password'
@@ -16,7 +14,7 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     assert_selector 'h1', text: '本'
     assert_text "Book Alice"
-    assert_text "This is Alice's book"
+    assert_text "This is Alice's book."
     assert_text "alice"
   end
 
@@ -24,14 +22,18 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     click_on '新規作成'
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
-    fill_in '著者', with: @book.author
+    fill_in 'タイトル', with: "This is Alice's book."
+    fill_in 'メモ', with: "Book Alice"
+    fill_in '著者', with: "alice"
 
     click_on '登録する'
 
     assert_text '本が作成されました。'
+    assert_text "Book Alice"
+
     click_on '戻る'
+    assert_current_path(books_path)
+
   end
 
   test 'updating a Book' do
