@@ -1,4 +1,4 @@
-one:
-  title: MyString
-  memo: MyText
+book_alice:
+  title: Book Alice
+  memo: This is Alice's book.
   author: alice
