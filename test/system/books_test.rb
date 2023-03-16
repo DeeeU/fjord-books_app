@@ -58,5 +58,8 @@ class BooksTest < ApplicationSystemTestCase
     end
 
     assert_text '本が削除されました。'
+    assert_no_text "This is new Alice's book."
+
+    assert_current_path(books_path)
   end
 end
