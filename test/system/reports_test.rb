@@ -53,9 +53,12 @@ class ReportsTest < ApplicationSystemTestCase
   test 'destroying the Report' do
     visit reports_url
     page.accept_confirm do
-      click_link('削除')
+      click_link '削除'
     end
 
     assert_text '日報が削除されました。'
+    assert_no_text "This is new Alice's report."
+
+    assert_current_path(reports_path)
   end
 end
