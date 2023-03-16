@@ -37,14 +37,17 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'editing the Report' do
     visit reports_url
-    click_link('編集')
+    click_link '編集'
 
-    fill_in 'タイトル', with: @report.title
-    fill_in '内容', with: @report.content
+    fill_in 'タイトル', with: "This is new Alice's  report."
+    fill_in '内容', with: "New Report Alice"
     click_on '更新する'
 
     assert_text '日報が更新されました。'
+    assert_text "This is new Alice's report."
+
     click_on '戻る'
+    assert_current_path(reports_path)
   end
 
   test 'destroying the Report' do
