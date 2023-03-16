@@ -20,17 +20,17 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'creating the Report' do
     visit reports_url
-    click_on '新規作成'
+    click_link '新規作成'
 
     fill_in 'タイトル', with: "This is Alice's report."
     fill_in '内容', with: "Report Alice"
 
-    click_on '登録する'
+    click_button '登録する'
 
     assert_text '日報が作成されました。'
     assert_text "Report Alice"
 
-    click_on '戻る'
+    click_link '戻る'
     assert_current_path(reports_path)
 
   end
@@ -41,12 +41,12 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in 'タイトル', with: "This is new Alice's  report."
     fill_in '内容', with: "New Report Alice"
-    click_on '更新する'
+    click_button '更新する'
 
     assert_text '日報が更新されました。'
     assert_text "This is new Alice's report."
 
-    click_on '戻る'
+    click_link '戻る'
     assert_current_path(reports_path)
   end
 
