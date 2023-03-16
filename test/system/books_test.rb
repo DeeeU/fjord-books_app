@@ -33,20 +33,22 @@ class BooksTest < ApplicationSystemTestCase
 
     click_on '戻る'
     assert_current_path(books_path)
-
   end
 
   test 'updating a Book' do
     visit books_url
     click_link('編集')
 
-    fill_in 'タイトル', with: @book.title
-    fill_in 'メモ', with: @book.memo
-    fill_in '著者', with: @book.author
+    fill_in 'タイトル', with: "This is new Alice's book."
+    fill_in 'メモ', with: "New Book Alice"
+    fill_in '著者', with: "Ms.alice"
     click_on '更新する'
 
     assert_text '本が更新されました。'
+    assert_text "This is new Alice's book."
+
     click_on '戻る'
+    assert_current_path(books_path)
   end
 
   test 'destroying a Book' do
