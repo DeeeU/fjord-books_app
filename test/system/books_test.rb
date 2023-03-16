@@ -14,7 +14,7 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     assert_selector 'h1', text: '本'
     assert_text "Book Alice"
-    assert_text "This is Alice's book."
+    assert_text "alice@hoge.com"
     assert_text "alice"
   end
 

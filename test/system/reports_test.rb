@@ -4,8 +4,6 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:report_alice)
-
     visit root_url
     fill_in 'Eメール', with: 'alice@hoge.com'
     fill_in 'パスワード', with: 'password'
@@ -15,6 +13,9 @@ class ReportsTest < ApplicationSystemTestCase
   test 'visiting the Report index' do
     visit reports_url
     assert_selector 'h1', text: '日報'
+    assert_text "Report Alice"
+    assert_text "alice@hoge.com"
+    assert_text Date.today.replace('-', '/')
   end
 
   test 'creating the Report' do
