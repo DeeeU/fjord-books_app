@@ -18,7 +18,7 @@ class UserTest < ActiveSupport::TestCase
     assert bob.followed_by?(alice)
 
     alice.unfollow(bob)
-    assert_equal false, alice.following?(bob)
-    assert_equal false, bob.followed_by?(alice)
+    assert_not alice.following?(bob)
+    assert_not bob.followed_by?(alice)
   end
 end
