@@ -20,8 +20,12 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'creating a Book' do
     visit books_url
-    click_link "新規作成"
 
+    click_link "新規作成"
+    click_link "戻る"
+    assert_current_path(books_path)
+
+    click_link "新規作成"
     fill_in "タイトル", with: "This is Alice's book."
     fill_in "メモ", with: "Book Alice"
     fill_in "著者", with: "alice"
@@ -31,14 +35,16 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "本が作成されました。"
     assert_text "Book Alice"
 
-    click_link "戻る"
-    assert_current_path(books_path)
   end
 
   test 'updating a Book' do
     visit books_url
-    click_link "編集"
 
+    click_link "編集"
+    click_link "戻る"
+    assert_current_path(books_path)
+
+    click_link "編集"
     fill_in "タイトル", with: "This is new Alice's book."
     fill_in "メモ", with: "New Book Alice"
     fill_in "著者", with: "Ms.alice"
@@ -47,8 +53,6 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "本が更新されました。"
     assert_text "This is new Alice's book."
 
-    click_link "戻る"
-    assert_current_path(books_path)
   end
 
   test 'destroying a Book' do
