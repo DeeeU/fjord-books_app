@@ -1,9 +1,4 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: MyString
-  memo: MyText
-
-two:
-  title: MyString
-  memo: MyText
+book_alice:
+  title: Book Alice
+  memo: This is Alice's book.
+  author: alice
